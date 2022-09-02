@@ -1,5 +1,12 @@
-a=10; b=5; res=0
-op=" * "
+import os
+os.system('cls') # windows
+# os.system('clear') # linux
+
+res=0
+
+a=int(input("Digite um valor: "))
+b=int(input("Digite outro valor: "))
+op=input("Digite um Operador: ")
 
 if "+" in op:
     res=a+b
