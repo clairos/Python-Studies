@@ -1,29 +1,31 @@
 a=int(input("Insira um número: "))
 b=int(input("Insira outro número: "))
 
-def somar():
+def somar(a, b):
     r=a+b
-    print("Resultado: {}".format(r))
+    print("Resultado: {} + {} = {}".format(a,b,r))
 
-def subtrair():
+def subtrair(a, b):
     r=a-b
-    print("Resultado: {}".format(r))
+    print("Resultado: {} - {} = {}".format(a,b,r))
 
-def multiplicar():
+def multiplicar(a, b):
     r=a*b
-    print("Resultado: {}".format(r))
+    print("Resultado: {} * {} = {}".format(a,b,r))
 
-def dividir():
+def dividir(a, b):
     r=a/b
-    print("Resultado: {}".format(r))
+    print("Resultado: {} / {} = {}".format(a,b,r))
 
 op=input("Digite a operação desejada (Ex: +, -, *, /): ")
 
-if "+" in op:
-    somar()
-elif "-" in op:
-    subtrair()
-elif "*" in op:
-    multiplicar()
-elif "/" in op:
-    dividir()
+if op=="+":
+    somar(a,b)
+elif op=="-":
+    subtrair(a,b)
+elif op=="*":
+    multiplicar(a,b)
+elif op=="/":
+    dividir(a,b)
+else:
+    print("Operação inválida")
