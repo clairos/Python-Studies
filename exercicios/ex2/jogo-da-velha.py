@@ -63,7 +63,7 @@ def cpu():
         c=random.randrange(0,3)
 
         while velha[l][c] != " ":
-            l=random.randrange(0,3)
+            l=random.randrange(0,3) #entre 0 e menor que 3 -> 0, 1 e 2
             c=random.randrange(0,3)
         
         velha[l][c] = "O"
@@ -74,7 +74,95 @@ def vitoria():
     # 3 possibilidades de vitoria em coluna = c0 l0 l1 l2| c1 l0 l1 l2 | c2 l0 l1 l2
     # 3 possibilidades de vitoria em linha = l0 c0 c1 c2 | l1 c0 c1 c2 | l2 c0 c1 c2
     # 2 possibilidades de vitoria em horizontal = l0 c0 l1 c1 l2 c2 | l0 c2 l1 c1 l2 c0
-    #     print("")
+    global velha
+    vitoria=False
+    ganhador=0
+    symbols=["X","O"] 
+
+    for s in symbols:
+        vitoria=False
+
+        # verifica vitoria em linha
+        il=ic=0 # il => indice de linha | ic => indice de coluna
+
+        while il<3: #coracaozinho hehe
+            soma=0
+            ic=0
+
+            while ic<3: #coracaozinho dinovo
+                if(velha[il][ic]==s): # s vem do for
+                    soma+=1
+
+                ic+=1
+
+            if(soma==3):
+                vitoria=True
+                ganhador=s
+                break
+
+            il+=1 
+
+        if(vitoria==True):
+            break
+        
+        #verifica vitoria em coluna
+        il=ic=0 
+
+        while ic<3: 
+            soma=0
+            il=0
+
+            while il<3: 
+                if(velha[il][ic]==s):
+                    soma+=1
+
+                il+=1
+ 
+            if(soma==3):
+                vitoria=True
+                ganhador=s
+                break
+
+            ic+=1
+
+        if(vitoria==True):
+            break
+
+        # verifica vitoria em diagonal 1
+        soma=0
+        idg=0
+
+        while idg<3:
+            if (velha[idg][idg]==s):
+                soma+=1
+
+            idg+=1
+
+        if(soma==3):
+            vitoria=True
+            ganhador=s
+            break
+
+        # verifica vitoria em diagonal 2
+        soma=0
+        idgl=0; idgc=2 # idgl = indice de diagonal linha | idgc = indice de diagonal coluna
+
+        while idgc<3:
+            if(velha[idgl][idgc]==s):
+                soma+=1
+
+            idgl+=1
+            idgc-=1
+
+        if(soma==3):
+            vitoria=True
+            ganhador=s
+            break
+    
+    return vitoria
+        
+
+
 
 # loop principal do jogo
 while True: # loop infinito, somente para quando executar break
