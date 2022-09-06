@@ -1,7 +1,4 @@
 import datetime
-from dis import get_instructions
-from distutils.ccompiler import gen_lib_options
-from errno import ENOTCONN
 
 data=datetime.datetime.now()
 nasc=datetime.datetime(2002, 1, 3)
