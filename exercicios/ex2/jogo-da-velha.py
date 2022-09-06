@@ -228,6 +228,6 @@ while(jogarNovamente=="s" or jogarNovamente=="S"):
     else:
         print("Resultado: EMPATE")
     
-    jogarNovamente = input(Fore.BLUE+"Jogar novamente? [s/n]: " + Fore.RESET)
+    jogarNovamente = input(Fore.MAGENTA+"Jogar novamente? [s/n]: " + Fore.RESET)
 
     reset();
