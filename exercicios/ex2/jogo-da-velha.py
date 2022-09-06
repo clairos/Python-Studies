@@ -6,8 +6,9 @@ from colorama import Fore, Back, Style # fore: cor da fonte / back: fundo / styl
 # Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
 # Style: DIM, NORMAL, BRIGHT, RESET_ALL
 
-jogarNovamente = True
+jogarNovamente = "s"
 jogadas = 0
+jog = 0 # 1 = jogador 2 | 2 = CPU
 quemJoga = 1 # 1 = Jogador 1 | 2 = CPU / Jogador 2
 maxJogadas = 9
 vit = False
@@ -46,8 +47,33 @@ def jogador1():
                 c=int(input("Coluna.: "))
 
             velha[l][c] = "X"
-            quemJoga = 2
             jogadas+=1
+            quemJoga = 2
+
+        except:
+            print("Linha e/ou coluna inválida\n")
+            os.system("pause")
+
+def jogador2():
+    global jogadas
+    global quemJoga
+    global vit
+    global maxJogadas
+
+    if quemJoga == 2 and jogadas < maxJogadas:
+        tela()
+        l=int(input("Linha..: "))
+        c=int(input("Coluna.: "))
+
+        try:
+            while velha[l][c] != " ":
+                l=int(input("Linha..: "))
+                c=int(input("Coluna.: "))
+
+            velha[l][c] = "O"
+            jogadas+=1
+            quemJoga = 1
+
         except:
             print("Linha e/ou coluna inválida\n")
             os.system("pause")
@@ -70,17 +96,16 @@ def cpu():
         jogadas+=1
         quemJoga = 1
 
-def vitoria(): 
+def checkVitoria(): 
     # 3 possibilidades de vitoria em coluna = c0 l0 l1 l2| c1 l0 l1 l2 | c2 l0 l1 l2
     # 3 possibilidades de vitoria em linha = l0 c0 c1 c2 | l1 c0 c1 c2 | l2 c0 c1 c2
     # 2 possibilidades de vitoria em horizontal = l0 c0 l1 c1 l2 c2 | l0 c2 l1 c1 l2 c0
     global velha
     vitoria=False
-    ganhador=0
     symbols=["X","O"] 
 
     for s in symbols:
-        vitoria=False
+        vitoria='n'
 
         # verifica vitoria em linha
         il=ic=0 # il => indice de linha | ic => indice de coluna
@@ -96,13 +121,12 @@ def vitoria():
                 ic+=1
 
             if(soma==3):
-                vitoria=True
-                ganhador=s
+                vitoria=s
                 break
 
             il+=1 
 
-        if(vitoria==True):
+        if(vitoria!='n'):
             break
         
         #verifica vitoria em coluna
@@ -112,20 +136,19 @@ def vitoria():
             soma=0
             il=0
 
-            while il<3: 
+            while il<3: # hihi
                 if(velha[il][ic]==s):
                     soma+=1
 
                 il+=1
  
             if(soma==3):
-                vitoria=True
-                ganhador=s
+                vitoria=s
                 break
 
             ic+=1
 
-        if(vitoria==True):
+        if(vitoria!='n'):
             break
 
         # verifica vitoria em diagonal 1
@@ -139,15 +162,14 @@ def vitoria():
             idg+=1
 
         if(soma==3):
-            vitoria=True
-            ganhador=s
+            vitoria=s
             break
 
         # verifica vitoria em diagonal 2
         soma=0
         idgl=0; idgc=2 # idgl = indice de diagonal linha | idgc = indice de diagonal coluna
 
-        while idgc<3:
+        while idgc>=0:
             if(velha[idgl][idgc]==s):
                 soma+=1
 
@@ -155,18 +177,57 @@ def vitoria():
             idgc-=1
 
         if(soma==3):
-            vitoria=True
-            ganhador=s
+            vitoria=s
             break
     
     return vitoria
         
+def reset():
+    global velha
+    global jogadas
+    global jog
+    global quemJoga
+    global maxJogadas
+    global vit
 
+    jogadas = 0
+    jog = 0
+    quemJoga = 1 # 1 = Jogador 1 | 2 = CPU / Jogador 2
+    maxJogadas = 9
+    vit = ""
+    velha = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ]
 
 
 # loop principal do jogo
-while True: # loop infinito, somente para quando executar break
-    tela()
-    jogador1()
-    cpu()
+while(jogarNovamente=="s" or jogarNovamente=="S"):
+    jog=int(input("Digite 1 para jogar com um amigo, 2 para jogar contra a CPU: "))
 
+    while True: # loop infinito, somente para quando executar break
+        tela()
+        jogador1()
+
+        if(jog==1):
+            jogador2()
+        else:
+            cpu()
+
+        tela()
+        vit=checkVitoria()
+
+        if(vit != 'n') or (jogadas >= maxJogadas):
+            break
+
+    print(Fore.RED + "FIM DE JOGO" + Fore.GREEN)
+
+    if(vit=="X" or vit=="O"):
+        print("Resultado: Jogador " + Fore.YELLOW + vit + Fore.GREEN + " venceu!") 
+    else:
+        print("Resultado: EMPATE")
+    
+    jogarNovamente = input(Fore.BLUE+"Jogar novamente? [s/n]: " + Fore.RESET)
+
+    reset();
