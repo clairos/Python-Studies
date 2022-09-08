@@ -1,4 +1,4 @@
-import re # RegEx 
+import re # biblioteca RegEx 
 
 texto="Curso de Python para desenvolvimento da bolsa no SETI"
 
