@@ -18,7 +18,7 @@ vcon=dbConnection()
 
 def menu():
     os.system('cls')
-    print("1. Inserir Novo Registros")
+    print("1. Inserir Novo Registro")
     print("2. Deletar Registro ( por ID )")
     print("3. Atualizar Registro")
     print("4. Consultar Registro por ID")
@@ -30,8 +30,10 @@ def insert(conexao, sql):
         c=conexao.cursor()
         c.execute(sql)
         conexao.commit()
+
     except Error as ex:
         print(ex)
+
     finally:
         print("Novo registro inserido.")
 
@@ -47,8 +49,17 @@ def delete(conexao, sql):
     finally:
         print("Registro deletado.")
 
-def update(): 
-    print()
+def update(conexao, sql):
+    try:
+        c=conexao.cursor()
+        c.execute(sql)
+        conexao.commit()
+
+    except Error as ex:
+        print(ex)
+
+    finally:
+        print("Registro atualizado")
 
 def selectID():
     print()
@@ -56,6 +67,11 @@ def selectID():
 def selectName():
     print()
 
+def select(conexao, sql):
+    c=conexao.cursor()
+    c.execute(sql)
+    result=c.fetchall()
+    return result
 
 opc = 0
 vsql=""
@@ -79,7 +95,32 @@ while opc!=6:
             os.system('pause')
 
         case 3:
-            update()
+            opcup=0
+            idcontato=input("Digite o ID do registro a ser atualizado: ")
+
+            os.system('cls')
+            print("O que deseja atualizar?")
+            print("1. Nome")
+            print("2. Telefone")
+            print("3. Email\n")
+            opcup=int(input())
+            os.system('cls')
+
+            match opcup:
+                case 1:
+                    nome=input("Digite o nome: ")
+                    vsql="UPDATE tb_contatos SET T_NOMECONTATO = '" + nome + "' WHERE N_IDCONTATO = " + idcontato
+                case 2:
+                    tel=input("Digite o telefone: ")
+                    vsql="UPDATE tb_contatos SET T_TELEFONE = '" + tel + "' WHERE N_IDCONTATO = " + idcontato
+                case 3:
+                    email=input("Digite o email: ")
+                    vsql="UPDATE tb_contatos SET T_EMAILCONTATO = '" + email + "' WHERE N_IDCONTATO = " + idcontato
+                case _:
+                    print("opção inválida.")
+
+            update(vcon, vsql)
+            os.system('pause')
 
         case 4:
             selectID()
@@ -90,7 +131,7 @@ while opc!=6:
         case 6:
             os.system('cls')
             print("Programa finalizado.")
-            
+
         case _:
             os.system('cls')
             print("Opção inválida")
