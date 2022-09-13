@@ -4,7 +4,8 @@ num = 1.5
 num = "um"
 
 # pode se usar o terminador de linha ; ou enter
-lang="Python"
+lang = "Python"
 print(lang)
 
-lang="JS"; print(lang)
+lang = "JS"
+print(lang)

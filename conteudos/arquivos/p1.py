@@ -1,6 +1,6 @@
-nome="teste.txt"
-# f=open('C:/Users/clara.brusa/Desktop/Python/base/arquivos/'+nome,"wt")
-f=open('C:/Users/clara.brusa/Desktop/Python/base/arquivos/'+nome,"r")
+nome = "teste.txt"
+# f = open('C:/Users/clara.brusa/Desktop/Python/base/arquivos/' + nome, "wt")
+f = open('C:/Users/clara.brusa/Desktop/Python/base/arquivos/' + nome, "r")
 # r - read
 # a - append
 # w - write
@@ -14,7 +14,7 @@ f=open('C:/Users/clara.brusa/Desktop/Python/base/arquivos/'+nome,"r")
 for l in f:
     print(l)
 
-# txt=input("Digite um texto: ")
-# f.write(txt+"\n")
+# txt = input("Digite um texto: ")
+# f.write(txt + "\n")
 
 f.close()

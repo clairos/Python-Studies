@@ -1,7 +1,7 @@
 import datetime
 
-data=datetime.datetime.now()
-nasc=datetime.datetime(2002, 1, 3)
+data = datetime.datetime.now()
+nasc = datetime.datetime(2002, 1, 3)
 
 print(f"{data.day}/{data.month}/{data.year}")
 print(nasc)

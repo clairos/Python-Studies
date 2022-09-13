@@ -39,12 +39,12 @@ class Elite(NPC):
     def inf(self):
         super().info()
 
-o1=Guarda("Olho Vivo", 1) 
-o2=Soldado("Bala na Agulha", 1) 
-o3=Elite("Ninja", 1) 
-o4=Guarda("Super Atento", 2) 
-o5=Soldado("Tiro Certo", 2) 
-o6=Elite("Samurai", 2) 
+o1 = Guarda("Olho Vivo", 1) 
+o2 = Soldado("Bala na Agulha", 1) 
+o3 = Elite("Ninja", 1) 
+o4 = Guarda("Super Atento", 2) 
+o5 = Soldado("Tiro Certo", 2) 
+o6 = Elite("Samurai", 2) 
 
 o1.vivo = False
 o6.vivo = False

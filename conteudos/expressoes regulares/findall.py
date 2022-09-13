@@ -1,12 +1,12 @@
 import re # biblioteca RegEx 
 
-texto="Curso de Python para desenvolvimento da bolsa no SETI"
+texto = "Curso de Python para desenvolvimento da bolsa no SETI"
 
 # res=re.findall("o", texto)
-pesq=input("Pesquisar: ")
-res=re.findall(pesq, texto)
+pesq = input("Pesquisar: ")
+res = re.findall(pesq, texto)
 
-qtde=len(res)
+qtde = len(res)
 
 print(f"Qtde: {qtde}")
 for q in res:

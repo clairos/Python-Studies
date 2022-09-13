@@ -9,7 +9,7 @@ class Carro: # valores default caso nao seja atribuido
     ligado = False
     cor = ""
 
-    def __init__(self,v,l,c): # definicao de construtor
+    def __init__(self, v, l, c): # definicao de construtor
         self.velMax = v # self. = this.
         self.ligado = l
         self.cor = c
@@ -17,7 +17,7 @@ class Carro: # valores default caso nao seja atribuido
     def mostrar(self):
         print(f"Velocidade máxima: {self.velMax}")
         print(f"Cor..............: {self.cor}")
-        estado="sim" if self.ligado else "não"
+        estado = "sim" if self.ligado else "não"
         print(f"Ligado...........: {estado}")
         print("---------------------------")
 
@@ -33,7 +33,7 @@ class Carro: # valores default caso nao seja atribuido
         else:
             print("Carro desligado")
 
-c1=Carro(200,False, "Prata")
+c1=Carro(200, False, "Prata")
 c2=Carro(120, False, "Preto")
 c3=Carro(400, False, "Vermelho")
 

@@ -2,18 +2,18 @@ import sqlite3
 from sqlite3 import Error
 
 def dbConnection(): # funcao para fazer a conexao com o banco de dados
-    path="C:\\Users\\clara.brusa\\Desktop\Python\\banco\\agenda.db"
-    con=None # connection
+    path = "C:\\Users\\clara.brusa\\Desktop\Python\\banco\\agenda.db"
+    con = None # connection
 
     try:
-        con=sqlite3.connect(path)
+        con = sqlite3.connect(path)
 
     except Error as ex:
         print(ex)
     
     return con
 
-vcon=dbConnection()
+vcon = dbConnection()
 
 # nome=input("Digite o nome: ")
 # tel=input("Digite o telefone: ")
@@ -23,7 +23,7 @@ vcon=dbConnection()
 
 def insert(conexao, sql):
     try:
-        c=conexao.cursor()
+        c = conexao.cursor()
         c.execute(sql)
         conexao.commit()
         print("Registro inserido")
@@ -35,7 +35,7 @@ def insert(conexao, sql):
 
 def delete(conexao, sql):
     try:
-        c=conexao.cursor()
+        c = conexao.cursor()
         c.execute(sql)
         conexao.commit()
 
@@ -45,5 +45,5 @@ def delete(conexao, sql):
     finally:
         print("Registro deletado")
     
-vsql="DELETE FROM tb_contatos WHERE N_IDCONTATO = 2"
+vsql = "DELETE FROM tb_contatos WHERE N_IDCONTATO = 2"
 delete(vcon, vsql)

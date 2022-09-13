@@ -1,7 +1,7 @@
-carros=["HRV","Golf","Argo","Focus","Clio","Fit","Fusion"]
+carros = ["HRV", "Golf", "Argo", "Focus", "Clio", "Fit", "Fusion"]
 
 for i in carros:    
-    if(i=="Argo"):
+    if(i == "Argo"):
         break
     print(i)
 
