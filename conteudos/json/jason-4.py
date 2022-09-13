@@ -1,7 +1,7 @@
 import json
 
 with open('C:/Users/clara.brusa/Desktop/Python/base/json/jogador.json') as j: # para abrir um arquivo externo com extensao .json
-    jogador=json.load(j)
+    jogador = json.load(j)
 
 # itens
 for i in jogador.items():

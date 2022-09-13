@@ -13,11 +13,11 @@ carros_list = ["honda", "volkswagen", "ford", "fiat", "chevrolet"]
 carros_tupla = ("honda", "volkswagen", "ford", "fiat", "chevrolet")
 # tupla -> array json
 
-carros_json_d=json.dumps(carros_dictionary, indent=4, separators=(": ", " = "), sort_keys=True)
+carros_json_d = json.dumps(carros_dictionary, indent = 4, separators = (": ", " = "), sort_keys = True)
 print(carros_json_d)
 
-carros_json_l=json.dumps(carros_list, indent=4)
+carros_json_l = json.dumps(carros_list, indent = 4)
 print(carros_json_l)
 
-carros_json_t=json.dumps(carros_tupla)
+carros_json_t = json.dumps(carros_tupla)
 print(carros_json_t)

@@ -1,7 +1,7 @@
 def curso():
     print("Curso de Python")
 
-char={
+char = {
     "nome":"jake",
     "pontos":100,
     "energia":100,

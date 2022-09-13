@@ -3,20 +3,20 @@
 # lembrar de nao nomear os arquivos com nome de alguma biblioteca que for importar
 import json
 
-carro_json='{"marca":"renault","modelo":"clio","cor":"prata"}'  # formato de dictionary
-carro_dic={
+carro_json = '{"marca":"renault","modelo":"clio","cor":"prata"}'  # formato de dictionary
+carro_dic = {
     "marca":"renault",
     "modelo":"clio",
     "cor":"prata"
 }
 
-carros=json.loads(carro_json) # converte json para dictionary
-carro_json=json.dumps(carro_dic) # converte dictionary para json
+carros = json.loads(carro_json) # converte json para dictionary
+carro_json = json.dumps(carro_dic) # converte dictionary para json
 
 print(carros)
 print(carros["modelo"])
 
-for k,v in carros.items(): # k for key, v for value
+for k, v in carros.items(): # k for key, v for value
     print(f"{k}: {v}")
 
 print(carro_json)

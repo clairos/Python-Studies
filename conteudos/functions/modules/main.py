@@ -6,6 +6,6 @@ import externo as ex # importa a biblioteca inteira
 # print(ex.char["nome"])
 # print(char["nome"])
 
-res=dir(ex)
+res = dir(ex)
 
 print(res)
