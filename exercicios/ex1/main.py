@@ -1,29 +1,29 @@
 import os
 
-carros=[]
+carros = []
 
 class Carro:
-    nome=""
-    pot=0
-    velMax=0
-    ligado=False
+    nome = ""
+    pot = 0
+    velMax = 0
+    ligado = False
 
     def __init__(self, nome, pot):
-        self.nome=nome
-        self.pot=pot
-        self.velMax=(int(pot))*2
+        self.nome = nome
+        self.pot = pot
+        self.velMax = (int(pot))*2
     
     def ligar(self):
-        self.ligado=True
+        self.ligado = True
 
     def desligar(self):
-        self.ligado=False
+        self.ligado = False
     
     def info(self):
         print(f"Nome.......: {self.nome}")
         print(f"Potência...: {self.pot}")
         print(f"Vel. Máxima: {self.velMax}")
-        print("Ligado.....: " + ("Sim" if self.ligado==True else "Não"))
+        print("Ligado.....: " + ("Sim" if self.ligado == True else "Não"))
         print("-------------------------------\n")
 
 def menu():
@@ -73,6 +73,7 @@ def excluir():
     try:
         del carros[n]
         print("Carro deletado com sucesso\n")
+
     except:
         print("Carro não existente\n")
     
@@ -85,6 +86,7 @@ def ligarCarro():
     try:
         carros[n].ligar()
         print(f"Carro {n} ligado\n")
+
     except:
         print("Carro não existente\n")
     
@@ -104,7 +106,7 @@ def desligarCarro():
 
 def listar():
     os.system("cls") or None
-    p=0
+    p = 0
 
     for c in carros:
         print(f"{p} - {c.nome}")

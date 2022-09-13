@@ -3,18 +3,18 @@ import sqlite3
 from sqlite3 import Error 
 
 def dbConnection(): # funcao para fazer a conexao com o banco de dados
-    path="C:\\Users\\clara.brusa\\Desktop\Python\\banco\\agenda.db"
-    con=None # connection
+    path = "C:\\Users\\clara.brusa\\Desktop\Python\\banco\\agenda.db"
+    con = None # connection
 
     try:
-        con=sqlite3.connect(path)
+        con = sqlite3.connect(path)
 
     except Error as ex:
         print(ex)
     
     return con
 
-vcon=dbConnection()
+vcon = dbConnection()
 
 def menu():
     os.system('cls')
@@ -28,7 +28,7 @@ def menu():
 
 def insert(conexao, sql):
     try:
-        c=conexao.cursor()
+        c = conexao.cursor()
         c.execute(sql)
         conexao.commit()
 
@@ -40,7 +40,7 @@ def insert(conexao, sql):
 
 def delete(conexao, sql):
     try:
-        c=conexao.cursor()
+        c = conexao.cursor()
         c.execute(sql)
         conexao.commit()
 
@@ -52,7 +52,7 @@ def delete(conexao, sql):
 
 def update(conexao, sql):
     try:
-        c=conexao.cursor()
+        c = conexao.cursor()
         c.execute(sql)
         conexao.commit()
 
@@ -63,71 +63,71 @@ def update(conexao, sql):
         print("Registro atualizado")
 
 def selectID(conexao, sql):
-    c=conexao.cursor()
+    c = conexao.cursor()
     c.execute(sql)
-    result=c.fetchall()
+    result = c.fetchall()
 
     print(result)
 
 def selectName(conexao, sql):
-    c=conexao.cursor()
+    c = conexao.cursor()
     c.execute(sql)
-    result=c.fetchall()
+    result = c.fetchall()
 
     print(result)
 
 def select(conexao, sql):
-    c=conexao.cursor()
+    c = conexao.cursor()
     c.execute(sql)
-    result=c.fetchall()
+    result = c.fetchall()
 
     for r in result:
         print(r)
 
 opc = 0
-vsql=""
-while opc!=7:
+vsql = ""
+while opc != 7:
     menu()
-    opc=int(input("Digite uma opção: "))
+    opc = int(input("Digite uma opção: "))
     os.system('cls')
 
     match opc:
         case 1:
-            nome=input("Digite o nome do novo registro: ")
-            tel=input("Digite o telefone do novo registro: ")
-            email=input("Digite o email do novo registro: ")
-            vsql="INSERT INTO tb_contatos (T_NOMECONTATO, T_TELEFONE, T_EMAILCONTATO) VALUES ('" + nome + "','" + tel + "','" + email + "')"
+            nome = input("Digite o nome do novo registro: ")
+            tel = input("Digite o telefone do novo registro: ")
+            email = input("Digite o email do novo registro: ")
+            vsql = "INSERT INTO tb_contatos (T_NOMECONTATO, T_TELEFONE, T_EMAILCONTATO) VALUES ('" + nome + "','" + tel + "','" + email + "')"
             insert(vcon, vsql)
             os.system('pause')
 
         case 2:
-            idcontato=int(input("Digite o ID do registro a ser deletado: "))
-            vsql="DELETE FROM tb_contatos WHERE N_IDCONTATO = '" + idcontato + "'"
+            idcontato = int(input("Digite o ID do registro a ser deletado: "))
+            vsql = "DELETE FROM tb_contatos WHERE N_IDCONTATO = '" + idcontato + "'"
             delete(vcon, vsql)
             os.system('pause')
 
         case 3:
-            opcup=0
-            idcontato=int(input("Digite o ID do registro a ser atualizado: "))
+            opcup = 0
+            idcontato = int(input("Digite o ID do registro a ser atualizado: "))
 
             os.system('cls')
             print("O que deseja atualizar?")
             print("1. Nome")
             print("2. Telefone")
             print("3. Email\n")
-            opcup=int(input())
+            opcup = int(input())
             os.system('cls')
 
             match opcup:
                 case 1:
-                    nome=input("Digite o nome: ")
-                    vsql="UPDATE tb_contatos SET T_NOMECONTATO = '" + nome + "' WHERE N_IDCONTATO = " + str(idcontato)
+                    nome = input("Digite o nome: ")
+                    vsql = "UPDATE tb_contatos SET T_NOMECONTATO = '" + nome + "' WHERE N_IDCONTATO = " + str(idcontato)
                 case 2:
-                    tel=input("Digite o telefone: ")
-                    vsql="UPDATE tb_contatos SET T_TELEFONE = '" + tel + "' WHERE N_IDCONTATO = " + str(idcontato)
+                    tel = input("Digite o telefone: ")
+                    vsql = "UPDATE tb_contatos SET T_TELEFONE = '" + tel + "' WHERE N_IDCONTATO = " + str(idcontato)
                 case 3:
-                    email=input("Digite o email: ")
-                    vsql="UPDATE tb_contatos SET T_EMAILCONTATO = '" + email + "' WHERE N_IDCONTATO = " + str(idcontato)
+                    email = input("Digite o email: ")
+                    vsql = "UPDATE tb_contatos SET T_EMAILCONTATO = '" + email + "' WHERE N_IDCONTATO = " + str(idcontato)
                 case _:
                     print("opção inválida.")
 
@@ -135,19 +135,19 @@ while opc!=7:
             os.system('pause')
 
         case 4:
-            vsql="SELECT * FROM tb_contatos"
+            vsql = "SELECT * FROM tb_contatos"
             select(vcon, vsql)
             os.system('pause')
 
         case 5:
-            idcontato=input("Digite o ID: ")
-            vsql="SELECT * FROM tb_contatos WHERE N_IDCONTATO = " + idcontato
+            idcontato = input("Digite o ID: ")
+            vsql = "SELECT * FROM tb_contatos WHERE N_IDCONTATO = " + idcontato
             selectID(vcon, vsql)
             os.system('pause')
 
         case 6:
-            nome=input("Digite o nome: ")
-            vsql="SELECT * FROM tb_contatos WHERE T_NOMECONTATO = '" + nome + "'"
+            nome = input("Digite o nome: ")
+            vsql = "SELECT * FROM tb_contatos WHERE T_NOMECONTATO = '" + nome + "'"
             selectName(vcon, vsql)
             os.system('pause')
         
