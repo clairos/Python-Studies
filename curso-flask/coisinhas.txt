@@ -1,0 +1,5 @@
+venv/WINDOWS/py -V
+
+source venv/Scripts/activate
+
+which python
