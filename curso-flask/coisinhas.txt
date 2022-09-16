@@ -4,3 +4,5 @@ source venv/Scripts/activate
 source ../venv/Scripts/activate
 
 which python
+
+pip install -r requirements/requirements-dev.txt
