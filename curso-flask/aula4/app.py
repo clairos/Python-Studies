@@ -1,5 +1,9 @@
+import views
 from flask import Flask
-from views import index, contato
 
-app = Flask(__name__)
 
+def create_app():
+    """Factory principal"""
+    app = Flask(__name__)
+    views.init_app(app)
+    return app
