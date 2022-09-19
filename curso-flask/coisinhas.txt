@@ -9,3 +9,5 @@ pip install -r requirements/requirements-dev.txt
 
 export FLASK_ENV=development (deixa rodando sem precisar parar o servidor e rodar novamente para atualizar)
 (tipo um nodemon da vida) (deixa o debugger ativo)
+
+tuoch [nome do arquivo]  # para criar um arquivo novo (git bash/linux)
