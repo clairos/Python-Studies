@@ -1,8 +1,9 @@
 from flask import Flask
-from delivery.ext.site.main import bp
+
+from delivery.ext import site
 
 def create_app():
     app = Flask(__name__)
-    app.register_blueprint(bp)
+    site.init_app(app)
 
     return app

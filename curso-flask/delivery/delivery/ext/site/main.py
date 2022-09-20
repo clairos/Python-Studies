@@ -3,9 +3,8 @@ from flask import Blueprint
 
 bp = Blueprint("site", __name__)
 
-@app.route("/")
+@bp.route("/")
 def index():
     return render_template(
-        'index.html',
-        name = request.args['name']
+        'index.html'
     )
