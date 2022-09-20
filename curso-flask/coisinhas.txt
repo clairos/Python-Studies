@@ -24,3 +24,6 @@ We can't use the 'make' command on windows and we don't get it preinstalled with
 4. On the section where 'path' is written, add a new file - the location of the bin file and save.
 5. Install make by typing the following on mingw command line : mingw-get install mingw32-make
 6. Now make is installed. To use it in command line just write "mingw32-make" in place of "make".
+---------------------------------------------------------
+
+pytest tests/ -v (resultado verboso do teste)
