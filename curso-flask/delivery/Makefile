@@ -11,5 +11,9 @@ clean:
 	rm -rf docs/_build
 	pip install -e .[dev] --upgrade --no-cache
 
+test:
+	pytest tests/ -v
+
 install:
 	pip install -e .['dev']
+	
