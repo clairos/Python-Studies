@@ -27,3 +27,4 @@ We can't use the 'make' command on windows and we don't get it preinstalled with
 ---------------------------------------------------------
 
 pytest tests/ -v (resultado verboso do teste)
+pytest ../tests/ -v
