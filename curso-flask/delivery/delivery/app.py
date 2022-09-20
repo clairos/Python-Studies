@@ -1,13 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask
+from delivery.ext.site.main import bp
 
 def create_app():
     app = Flask(__name__)
-
-    @app.route("/")
-    def index():
-        return render_template(
-            'index.html',
-            name = request.args['name']
-        )
+    app.register_blueprint(bp)
 
     return app
