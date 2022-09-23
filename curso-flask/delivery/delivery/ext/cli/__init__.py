@@ -25,7 +25,8 @@ def init_app(app):
         db.session.commit()
 
         click.echo("New user was successfully added!")
-    
+
+
     @app.cli.command()
     def list_orders():
         click.echo("list orders")
