@@ -8,8 +8,9 @@ which python
 pip install -r requirements/requirements-dev.txt
 
 export FLASK_APP=delivery/app.py
-export FLASK_ENV=development (deixa rodando sem precisar parar o servidor e rodar novamente para atualizar)
+## ficou velho -> export FLASK_ENV=development (deixa rodando sem precisar parar o servidor e rodar novamente para atualizar)
 (tipo um nodemon da vida) (deixa o debugger ativo)
+export FLASK_DEBUG=1 / export FLASK_DEBUG=0
 
 touch [nome do arquivo]  # para criar um arquivo novo (git bash/linux)
 

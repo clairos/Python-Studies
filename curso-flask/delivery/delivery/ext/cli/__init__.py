@@ -33,4 +33,5 @@ def init_app(app):
 
     @app.cli.command()
     def list_users():
-        click.echo("list users")
+        users = models.User.query.all()
+        click.echo(f"users list: {users}")
