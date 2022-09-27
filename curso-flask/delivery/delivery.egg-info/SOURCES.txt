@@ -9,7 +9,11 @@ delivery.egg-info/dependency_links.txt
 delivery.egg-info/requires.txt
 delivery.egg-info/top_level.txt
 delivery/ext/__init__.py
+delivery/ext/hooks.py
 delivery/ext/migrate.py
+delivery/ext/auth/__init__.py
+delivery/ext/auth/commands.py
+delivery/ext/auth/models.py
 delivery/ext/cli/__init__.py
 delivery/ext/config/__init__.py
 delivery/ext/db/__init__.py
