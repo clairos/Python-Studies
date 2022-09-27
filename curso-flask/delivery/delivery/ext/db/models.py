@@ -27,6 +27,7 @@ class Store(db.Model):
     name = db.Column("name", db.Unicode)
     user_id = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
     category_id = db.Column("category_id", db.Integer, db.ForeignKey("category.id"))
+    active = db.Column("active", db.Boolean)
 
     user = db.relationship("User", foreign_keys=user_id)
     category = db.relationship("Category", foreign_keys=category_id)
