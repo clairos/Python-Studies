@@ -18,6 +18,7 @@ class Category(db.Model):
     __tablename__ = "category"
     id = db.Column("id", db.Integer, primary_key=True)
     name = db.Column("name", db.Unicode, unique=True)
+    on_menu = db.Column("on_menu", db.Boolean)
 
 
 class Store(db.Model):
