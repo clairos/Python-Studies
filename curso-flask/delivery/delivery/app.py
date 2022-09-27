@@ -6,6 +6,8 @@ from delivery.ext import toolbar
 from delivery.ext import db
 from delivery.ext import migrate
 from delivery.ext import cli
+from delivery.ext import hooks
+from delivery.ext import auth
 
 
 def create_app():
@@ -13,9 +15,11 @@ def create_app():
     
     config.init_app(app)
     db.init_app(app)
+    auth.init_app(app)
     migrate.init_app(app)
     cli.init_app(app)
     toolbar.init_app(app)
     site.init_app(app)
+    hooks.init_app(app)
 
     return app
