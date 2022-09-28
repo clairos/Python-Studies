@@ -11,7 +11,9 @@ delivery.egg-info/top_level.txt
 delivery/ext/__init__.py
 delivery/ext/hooks.py
 delivery/ext/migrate.py
+delivery/ext/admin/__init__.py
 delivery/ext/auth/__init__.py
+delivery/ext/auth/admin.py
 delivery/ext/auth/commands.py
 delivery/ext/auth/models.py
 delivery/ext/cli/__init__.py

@@ -11,4 +11,4 @@ def init_app(app):
     app.cli.command()(list_users)
     app.cli.command()(add_user)
 
-    admin.add_view(UserAdmin(User, db.session))
+    # admin.add_view(UserAdmin(User, db.session))

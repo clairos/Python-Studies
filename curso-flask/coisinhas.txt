@@ -1,6 +1,11 @@
+pip install virtualenv
+
+python -m venv venv (cria a pasta venv)
+
 venv/WINDOWS/py -V
 
-source venv/Scripts/activate
+## starta o virtual environment
+source venv/Scripts/activate 
 source ../venv/Scripts/activate
 
 which python
