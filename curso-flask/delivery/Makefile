@@ -20,3 +20,8 @@ init_db:
 
 test:
 	pytest tests/ -v
+
+run:
+	export FLASK_APP=delivery/app.py 
+	export FLASK_DEBUG=1 
+	flask run
