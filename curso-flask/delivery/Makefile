@@ -14,14 +14,5 @@ clean:
 install:
 	pip install -e .['dev']
 
-# init_db:
-# 	FLASK_APP=delivery/app.py flask create-db
-# 	FLASK_APP=delivery/app.py flask db upgrade
-
 test:
 	pytest tests/ -v
-
-run:
-	export FLASK_APP=delivery/app.py 
-	export FLASK_DEBUG=1 
-	flask run
