@@ -14,5 +14,9 @@ clean:
 install:
 	pip install -e .['dev']
 
+init-db:
+	FLASK_APP=delivery/app.py flask create-db 
+	FLASK_APP=delivery/app.py flask db upgrade 
+
 test:
 	pytest tests/ -v

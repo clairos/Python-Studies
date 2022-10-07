@@ -2,6 +2,9 @@ import click
 from delivery.ext.db import db
 from delivery.ext.auth.models import User
 
+def create_db():
+    # este comando inicializa o banco de dados
+    db.create_all()
 
 def list_users():
     users = User.query.all()
