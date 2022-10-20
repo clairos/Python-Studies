@@ -15,14 +15,18 @@ url = "https://curso-python-selenium.netlify.app/aula_03.html"
 
 driver.get(url)
 
-sleep(3)
+sleep(1)
 
 a = driver.find_element(By.TAG_NAME, "a")
-a.click()
-
 p = driver.find_element(By.TAG_NAME, "p")
 
-print(f"texto de a: {a.text}")
-print(f"texto de p: {p.text}")
+for click in range(11):
+    a.click()
+    ps = driver.find_elements(By.TAG_NAME, "p")
+    print(f"valor do ultimo p {ps[-1].text}")
+    print(f"valor do click: {click}")
 
-driver.quit()
+# print(f"texto de a: {a.text}")
+# print(f"texto de p: {p.text}")
+
+# driver.quit()
