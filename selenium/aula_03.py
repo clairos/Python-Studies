@@ -10,8 +10,13 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 wdw = WebDriverWait(driver, 10)
 
-url = 'https://curso-python-selenium.netlify.app/aula_03.html'
+url = "https://curso-python-selenium.netlify.app/aula_03.html"
 
 driver.get(url)
 
-driver.quit()
+driver.implicitly_wait(20)
+
+a = driver.find_element(By.TAG_NAME, "a")
+
+
+# driver.quit()
