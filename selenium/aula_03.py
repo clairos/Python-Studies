@@ -9,3 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 # cria a instância do driver do navegador
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 wdw = WebDriverWait(driver, 10)
+
+url = 'https://curso-python-selenium.netlify.app/aula_03.html'
+
+driver.get(url)
+
+driver.quit()
