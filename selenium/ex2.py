@@ -11,24 +11,20 @@ from time import sleep
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 wdw = WebDriverWait(driver, 10)
 
-url = "https://curso-python-selenium.netlify.app/exercicio_01.html"
+url = "https://curso-python-selenium.netlify.app/exercicio_02.html"
 
 driver.get(url)
 
-sleep(1)
+sleep(2)
 
-title = driver.find_element(By.TAG_NAME, 'h1')
+a = driver.find_element(By.TAG_NAME, 'a')
 
-d1 = {title.text: 'Vazio'}
-print(d1)
-d2 = {}
-
-for i in range(3):
+while True:
+    a.click()
     p = driver.find_elements(By.TAG_NAME, 'p')
-    d2.update({f'texto{i+1}': p[i].text})
+    p1 = p[-1].text
 
-d1 = {title.text: d2}
-
-print(d1)
+    if (p1.find('ganhou'))!= -1:
+        break
 
 driver.quit()
