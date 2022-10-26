@@ -18,26 +18,28 @@ driver.get(url)
 
 sleep(1)
 
-aside = driver.find_element(By.TAG_NAME, 'aside')
+def get_links(driver, elemento):
+    result = {}
+    element = driver.find_element(By.TAG_NAME, elemento)
+    ancoras = element.find_elements(By.TAG_NAME, 'a')
 
-aside_as = aside.find_elements(By.TAG_NAME, 'a')
+    for ancora in ancoras:
+        result[ancora.text] = ancora.get_attribute('href')
 
-links_aulas = {}
+    return result
 
-for a in aside_as:
-    links_aulas[a.text] = [a.get_attribute('href')]
+aulas = get_links(driver, 'aside')
+pprint(aulas)
 
-pprint(links_aulas)
-aula_3 = str(links_aulas['Aula 3']).split("'")
-new_url = aula_3[1]
-print(new_url)
+exercicios = get_links(driver, 'main')
+pprint(exercicios)
 
-driver.get(new_url)
+driver.get(exercicios['Exercício 3'])
 
-driver.back()
+# sleep(2)
 
-# main = driver.find_element(By.TAG_NAME, 'main')
+# driver.back()
 
-
+# sleep(1)
 
 driver.quit()
