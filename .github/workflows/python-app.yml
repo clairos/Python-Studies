@@ -3,7 +3,7 @@ name: Python application
 defaults:
   run:
     shell: bash
-    working-directory: ./curso-flask/delivery
+    working-directory: ./flask/delivery
 
 on:
   push:
