@@ -11,10 +11,18 @@ from time import sleep
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 wdw = WebDriverWait(driver, 10)
 
-url = ""
+url = "https://curso-python-selenium.netlify.app/aula_05_b.html"
 
 driver.get(url)
 
 sleep(1)
+
+topico = driver.find_element(By.CLASS_NAME, 'topico')
+linguagens = driver.find_elements(By.CLASS_NAME, 'linguagens')
+
+print(topico.text)
+
+for linguagem in linguagens:
+    print(linguagem.find_element(By.TAG_NAME, 'h2').text)
 
 driver.quit()
