@@ -43,6 +43,8 @@ result_arrumado = texto_result.replace('\'', '\"')
 
 dic_result = loads(result_arrumado)
 
+assert dic_result == estrutura
+
 if dic_result==estrutura:
     print('deu certo!')
 else:
