@@ -37,13 +37,26 @@ preenche_form(driver, **estrutura)
 
 sleep(1)
 
-divide_url = driver.current_url.split('?')
-todos_atributos = divide_url[1]
-todos_atributos = todos_atributos.split('&')
-for atributo in todos_atributos:
-    todos_atributos[atributo].split('=')
-print(todos_atributos)
+query_url = urlparse(driver.current_url).query
+atributos = query_url.split('&')
+# print(atributos)
+# print(query_url)
+
 atributos_dic = {}
 
+for atributo in atributos:
+    novo = atributo.split('=')
+    atributos_dic.update({novo[0]: novo[1]})
+
+remove_button = atributos_dic.pop('btn')
+# print(atributos_dic)
+# print(estrutura)
+
+atributos_dic |= {'email': atributos_dic['email'].replace('%40', '@')}
+
+if atributos_dic == estrutura:
+    print('deu certo!!')
+else:
+    print('não deu certo :(')
 
 driver.quit()
