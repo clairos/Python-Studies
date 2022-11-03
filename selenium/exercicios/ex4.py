@@ -7,7 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait # type: ignore
 from selenium.webdriver.support import expected_conditions as EC # type: ignore
 from time import sleep
 from urllib.parse import urlparse
-from json import loads
 
 # cria a instância do driver do navegador
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
