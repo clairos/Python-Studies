@@ -17,4 +17,4 @@ driver.get(url)
 
 sleep(1)
 
-# driver.quit()
+driver.quit()
