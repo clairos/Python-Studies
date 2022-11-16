@@ -23,15 +23,15 @@ def preencheForm(form, nome, senha):
     driver.find_element(By.CSS_SELECTOR, f'form.form-{form} [name="senha"]').send_keys(senha)
     driver.find_element(By.CSS_SELECTOR, f" form.form-{form} [name={form}]").click()
 
-for i in range(4):
+for i in range(6):
     nform = driver.find_element(By.CSS_SELECTOR, 'header span')
     preencheForm(nform.text, 'clara', 'senhateste123')
     sleep(0.5)
 
-for i in range(2):
-    new_form = driver.find_element(By.CSS_SELECTOR, 'header span')
-    preencheForm(new_form.text, 'clarinha', 'senhateste123')
-    sleep(0.5)
+# for i in range(2):
+#     new_form = driver.find_element(By.CSS_SELECTOR, 'header span')
+#     preencheForm(new_form.text, 'clarinha', 'senhateste123')
+#     sleep(0.5)
 
 sleep(2)
 

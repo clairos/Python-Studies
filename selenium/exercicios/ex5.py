@@ -28,6 +28,6 @@ for i in range(4):
     preencheForm(nform.text, 'clara', 'senhateste123')
     sleep(0.5)
 
-sleep(2)
+sleep(1)
 
 driver.quit()
