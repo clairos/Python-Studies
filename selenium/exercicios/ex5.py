@@ -18,19 +18,15 @@ driver.get(url)
 
 sleep(1)
 
-nomes = driver.find_elements(By.CSS_SELECTOR, '[type=text]')
-senhas = driver.find_elements(By.CSS_SELECTOR, '[type=password]')
-btns = driver.find_elements(By.CSS_SELECTOR, 'input[name*=l]')
+def preencheForm(form, nome, senha):
+    driver.find_element(By.CSS_SELECTOR, f'form.form-{form} [name="nome"]').send_keys(nome)
+    driver.find_element(By.CSS_SELECTOR, f'form.form-{form} [name="senha"]').send_keys(senha)
+    driver.find_element(By.CSS_SELECTOR, f" form.form-{form} [name={form}]").click()
 
-for nome in nomes:
-    nome.send_keys('Clara')
-
-for senha in senhas:
-    senha.send_keys('submarino123')
-
-for btn in btns:
-    btn.click()
-    sleep(1)
+for i in range(4):
+    nform = driver.find_element(By.CSS_SELECTOR, 'header span')
+    preencheForm(nform.text, 'clara', 'senhateste123')
+    sleep(0.5)
 
 sleep(2)
 
