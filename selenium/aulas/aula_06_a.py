@@ -17,4 +17,14 @@ driver.get(url)
 
 sleep(1)
 
+nome = driver.find_element(By.CSS_SELECTOR, '[type="text"]')
+senha = driver.find_element(By.CSS_SELECTOR, '[type="password"]')
+btn = driver.find_element(By.CSS_SELECTOR, '[type="submit"]')
+
+nome.send_keys('Clara')
+senha.send_keys('submarino123')
+btn.click()
+
+sleep(2)
+
 driver.quit()
