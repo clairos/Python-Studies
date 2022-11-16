@@ -25,9 +25,17 @@ sleep(1)
 # senha = driver.find_element(By.CSS_SELECTOR, '[name="password"]')
 # btn = driver.find_element(By.CSS_SELECTOR, '[name="submit"]')
 
-nome = driver.find_element(By.CSS_SELECTOR, '[name*="ome"]')
-senha = driver.find_element(By.CSS_SELECTOR, '[name*="nha"]')
-btn = driver.find_element(By.CSS_SELECTOR, '[name*="l0"]')
+# nome = driver.find_element(By.CSS_SELECTOR, '[name*="ome"]')
+# senha = driver.find_element(By.CSS_SELECTOR, '[name*="nha"]')
+# btn = driver.find_element(By.CSS_SELECTOR, '[name*="l0"]')
+
+# nome = driver.find_element(By.CSS_SELECTOR, '[name|="nome"]')
+# senha = driver.find_element(By.CSS_SELECTOR, '[name|="senha"]')
+# btn = driver.find_element(By.CSS_SELECTOR, '[name|="l0c0"]')
+
+nome = driver.find_element(By.CSS_SELECTOR, '[name^="n"]')
+senha = driver.find_element(By.CSS_SELECTOR, '[name^="s"]')
+btn = driver.find_element(By.CSS_SELECTOR, '[name^="l"]')
 
 nome.send_keys('Clara')
 senha.send_keys('submarino123')
