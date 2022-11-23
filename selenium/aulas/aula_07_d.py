@@ -26,4 +26,13 @@ assert 'está com foco' == span.text
 span.click()
 assert 'está sem foco' == span.text
 
+assert p.text == '0', 'p não é zero'
+inp.send_keys('biscoito')
+assert 'está com foco' == span.text, 'está com foco não está em span'
+span.click()
+assert 'está sem foco' == span.text, 'está sem foco não está em span'
+assert p.text == '1', 'p não é 1'
+
+sleep(2)
+
 driver.quit()
