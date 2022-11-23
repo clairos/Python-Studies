@@ -17,4 +17,13 @@ driver.get(url)
 
 sleep(1)
 
+inp = driver.find_element(By.TAG_NAME, 'input')
+span = driver.find_element(By.TAG_NAME, 'span')
+p = driver.find_element(By.TAG_NAME, 'p')
+
+inp.click()
+assert 'está com foco' == span.text
+span.click()
+assert 'está sem foco' == span.text
+
 driver.quit()
