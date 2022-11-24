@@ -15,7 +15,7 @@ class Escuta(AbstractEventListener):
             print(webdriver.find_element(By.TAG_NAME, 'span').text)
         print(f'antes do click no {element.tag_name}')
 
-    # def clicking(self, element, webdriver):
+    # def clicking(self, element, webdriver): # nao funciona
     #     print('to clicando')
 
     def after_click(self, element, webdriver):
@@ -29,15 +29,15 @@ wdw = WebDriverWait(driver, 10)
 
 url = 'https://curso-python-selenium.netlify.app/aula_07_d.html'
 
-rap10 = EventFiringWebDriver(driver, Escuta())
+wrapper = EventFiringWebDriver(driver, Escuta())
 
-rap10.get(url)
+wrapper.get(url)
 
 sleep(1)
 
-inp = rap10.find_element(By.TAG_NAME, 'input')
-span = rap10.find_element(By.TAG_NAME, 'span')
-p = rap10.find_element(By.TAG_NAME, 'p')
+inp = wrapper.find_element(By.TAG_NAME, 'input')
+span = wrapper.find_element(By.TAG_NAME, 'span')
+p = wrapper.find_element(By.TAG_NAME, 'p')
 
 inp.click()
 span.click()
