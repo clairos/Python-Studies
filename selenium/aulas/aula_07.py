@@ -10,10 +10,17 @@ from time import sleep
 
 class Escuta(AbstractEventListener):
     def before_click(self, element, webdriver):
-        print('antes do click')
+        if element.tag_name == 'input':
+            print(webdriver.find_element(By.TAG_NAME, 'span').text)
+        print(f'antes do click no {element.tag_name}')
+
+    # def clicking(self, element, webdriver):
+    #     print('to clicando')
 
     def after_click(self, element, webdriver):
-        print('depois do click')
+        if element.tag_name == 'input':
+            print(webdriver.find_element(By.TAG_NAME, 'span').text)
+        print(f'depois do click no {element.tag_name}')	
 
 # cria a instância do driver do navegador
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -32,6 +39,7 @@ span = rap10.find_element(By.TAG_NAME, 'span')
 p = rap10.find_element(By.TAG_NAME, 'p')
 
 inp.click()
-print('to clicando')
+span.click()
+# print('to clicando')
 
 driver.quit()
