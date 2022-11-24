@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By  # type: ignore
 # from selenium.webdriver.common.keys import Keys  # type: ignore
 from webdriver_manager.chrome import ChromeDriverManager  # type: ignore
 from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
-from selenium.webdriver.support.events import AbstractEventListener # type: ignore
+from selenium.webdriver.support.events import AbstractEventListener, EventFiringWebDriver # type: ignore
 from selenium.webdriver.support import expected_conditions as EC  # type: ignore
 from time import sleep
 
@@ -21,13 +21,15 @@ wdw = WebDriverWait(driver, 10)
 
 url = 'https://curso-python-selenium.netlify.app/aula_07_d.html'
 
-driver.get(url)
+rap10 = EventFiringWebDriver(driver, Escuta())
+
+rap10.get(url)
 
 sleep(1)
 
-inp = driver.find_element(By.TAG_NAME, 'input')
-span = driver.find_element(By.TAG_NAME, 'span')
-p = driver.find_element(By.TAG_NAME, 'p')
+inp = rap10.find_element(By.TAG_NAME, 'input')
+span = rap10.find_element(By.TAG_NAME, 'span')
+p = rap10.find_element(By.TAG_NAME, 'p')
 
 inp.click()
 print('to clicando')
