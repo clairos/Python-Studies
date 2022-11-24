@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By  # type: ignore
 # from selenium.webdriver.common.keys import Keys  # type: ignore
 from webdriver_manager.chrome import ChromeDriverManager  # type: ignore
 from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
-from selenium.webdriver.support.events import AbstractEventListener, EventFiringWebDriver # type: ignore
+from selenium.webdriver.support.events import AbstractEventListener # type: ignore
+from selenium.webdriver.support.events import EventFiringWebDriver # type: ignore
 from selenium.webdriver.support import expected_conditions as EC  # type: ignore
 from time import sleep
 
