@@ -9,7 +9,13 @@ from selenium.webdriver.support.events import EventFiringWebDriver # type: ignor
 from selenium.webdriver.support import expected_conditions as EC  # type: ignore
 from time import sleep
 
-class Escuta(AbstractEventListener):
+class Escuta(AbstractEventListener): # hook para pegar o que esta antes/depois
+    def before_navigate_to(self, url, webdriver):
+        print(f'Indo para {url}')
+
+    def before_navigate_back(self, webdriver):
+        print('voltando para a página anterior')
+
     def before_click(self, element, webdriver):
         if element.tag_name == 'input':
             print(webdriver.find_element(By.TAG_NAME, 'span').text)
@@ -42,5 +48,11 @@ p = wrapper.find_element(By.TAG_NAME, 'p')
 inp.click()
 span.click()
 # print('to clicando')
+
+new_url = 'https://curso-python-selenium.netlify.app/aula_07_c.html'
+
+wrapper.get(new_url)
+
+wrapper.back()
 
 driver.quit()
