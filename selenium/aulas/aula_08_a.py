@@ -13,14 +13,10 @@ from time import sleep
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 wdw = WebDriverWait(driver, 10)
 
-url = "https://selenium.dunossauro.live/keyboard"
+url = "https://selenium.dunossauro.live/aula_08_a"
 
 driver.get(url)
 
 sleep(1)
-
-html = driver.find_element(By.TAG_NAME, 'html')
-
-html.send_keys('clara')
 
 driver.quit()
