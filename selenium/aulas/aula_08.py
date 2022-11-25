@@ -15,4 +15,10 @@ wdw = WebDriverWait(driver, 10)
 
 url = "https://selenium.dunossauro.live/keyboard"
 
+driver.get(url)
+
+html = driver.find_element(By.TAG_NAME, 'html')
+
+html.send_keys('clara')
+
 driver.quit()
