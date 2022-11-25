@@ -20,27 +20,37 @@ driver.get(url)
 
 sleep(1)
 
-texto = 'Clara'
+texto = 'clara'
 
 # high level
 elemento = driver.find_element(By.NAME, 'texto')
 elemento.send_keys(texto)
-
 sleep(1)
 
 # low level
 ac = ActionChains(driver)
-# ac.key_down(u'\ue008') # utilizando unicode code point
-ac.key_down(Keys.SHIFT) # utilizando a biblioteca Keys
-ac.key_down(texto[2])
-ac.key_up(texto[2])
-# ac.key_down(u'\ue008')
-ac.key_up(Keys.SHIFT)
+ac.move_to_element(elemento)
+ac.click(elemento)
+
+def digita(key):
+    # ac.key_down(u'\ue008') # utilizando unicode code point
+    ac.key_down(key) # utilizando a biblioteca Keys
+
+    for letra in texto:
+        ac.key_down(letra)
+        ac.key_up(letra)
+
+    # ac.key_down(u'\ue008')
+    ac.key_up(key)
+
+digita(Keys.SHIFT)
+# digita(Keys.CAPS_LOCK)
+
 ac.perform()
 
 # https://www.selenium.dev/pt-br/documentation/webdriver/actions_api/keyboard/
 # https://www.w3.org/TR/webdriver/#keyboard-actions
 
-sleep(3)
+sleep(1)
 
 driver.quit()
