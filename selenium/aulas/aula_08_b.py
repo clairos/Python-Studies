@@ -25,6 +25,7 @@ caixa = driver.find_element(By.ID, 'caixa')
 span = driver.find_element(By.TAG_NAME, 'span')
 
 def caixinha(key1, key2=None):
+    ac.pause(1)
     ac.key_down(key1)
     if key2:
         ac.key_down(key2)
@@ -53,8 +54,8 @@ caixinha(Keys.SHIFT)
 caixinha(Keys.CONTROL)
 caixinha(Keys.SHIFT, Keys.CONTROL)
 
-
 ac.move_to_element(caixa)
+ac.pause(1)
 ac.context_click()
 ac.pause(1)
 
