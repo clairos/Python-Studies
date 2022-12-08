@@ -18,8 +18,10 @@ url = "https://selenium.dunossauro.live/aula_09_a.html"
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-wdw = WebDriverWait(driver, 10)
+wdw = WebDriverWait(driver, 10, poll_frequency=0.1)
 
 driver.get(url)
+
+wdw.until(wait_btn)
 
 # driver.quit()
