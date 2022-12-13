@@ -14,14 +14,28 @@ def wait_btn(webdriver):
     print('tentando encontrar "button"')
     return bool(elements) # true or false 
 
+def wait_success(webdriver):
+    elements = webdriver.find_elements(By.CSS_SELECTOR, '#finished')
+    print('tentando encontrar "finished"')
+    return bool(elements)
+
 url = "https://selenium.dunossauro.live/aula_09_a.html"
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-wdw = WebDriverWait(driver, 10, poll_frequency=0.1)
+wdw = WebDriverWait(driver, 10)
+# wdw = WebDriverWait(driver, 10, poll_frequency=1)
 
 driver.get(url)
 
-wdw.until(wait_btn)
+wdw.until(wait_btn, 'deu ruim')
 
-# driver.quit()
+driver.find_element(By.CSS_SELECTOR, 'button').click()
+
+wdw.until(wait_success, 'a mensagem de sucesso não apareceu')
+
+sucesso = driver.find_element(By.CSS_SELECTOR, '#finished')
+
+assert sucesso.text == 'Carregamento concluído'
+
+driver.quit()
